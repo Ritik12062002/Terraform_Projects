@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aegis Security Operations - Next-generation autonomous threat detection, zero-trust cloud infrastructure, and cybersecurity operations command center.">
+  <meta name="keywords" content="cybersecurity, cloud security, penetration testing, threat detection, zero trust, encryption, SOC, aegis core">
+  <title>Aegis Security Operations | Autonomous Cyber Defense</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#home" class="logo" id="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span class="logo-text">AEGIS<span>//CORE</span></span>
+      </a>
+      
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">&#x2630;</button>
+      
+      <nav>
+        <a href="#home" class="nav-link active" id="link-home">OVERVIEW</a>
+        <a href="#console" class="nav-link" id="link-console">THREAT CONSOLE</a>
+        <a href="#cipher" class="nav-link" id="link-cipher">CIPHER SANDBOX</a>
+        <a href="#services" class="nav-link" id="link-services">CAPABILITIES</a>
+        <a href="#map" class="nav-link" id="link-map">GLOBAL MAP</a>
+        <a href="#contact" class="nav-link" id="link-contact">TRANSMIT</a>
+      </nav>
+      
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span>DEFENSE: ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="container hero">
+    <div class="hero-content">
+      <span class="badge">SECURE COMMAND AND CONTROL</span>
+      <h1 class="hero-title">
+        Autonomous <span class="cyan">Threat Detection</span> & <span class="purple">Cyber Defense</span>
+      </h1>
+      <p class="hero-subtitle">
+        Deploy zero-trust network defenses, real-time vulnerability mitigation, and cryptographic isolation systems to protect your cloud assets from state-level actors.
+      </p>
+      <div class="hero-buttons">
+        <a href="#console" class="btn btn-primary" id="hero-btn-scan">Access Terminal</a>
+        <a href="#services" class="btn btn-secondary" id="hero-btn-capabilities">View Capabilities</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="glass-panel terminal-box">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="term-dot red"></span>
+            <span class="term-dot yellow"></span>
+            <span class="term-dot green"></span>
+          </div>
+          <span>root@aegis-sec-ops:~</span>
+        </div>
+        <div class="terminal-body" id="terminal-logs">
+          <div class="scan-line-overlay"></div>
+          <!-- Logs will be prepended here via JS -->
+          <div class="terminal-line cursor"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Stats Section -->
+  <section class="container" style="padding-top: 0; padding-bottom: 80px;">
+    <div class="stats-grid">
+      <div class="glass-panel stat-card" id="stat-uptime-card">
+        <div class="stat-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <div class="stat-number" id="stat-uptime">99.998%</div>
+        <div class="stat-label">System Node Uptime</div>
+      </div>
+      
+      <div class="glass-panel stat-card" id="stat-threats-card">
+        <div class="stat-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div class="stat-number" id="stat-threats">14,284</div>
+        <div class="stat-label">Attacks Blocked Today</div>
+      </div>
+      
+      <div class="glass-panel stat-card" id="stat-ping-card">
+        <div class="stat-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="stat-number" id="stat-ping">12ms</div>
+        <div class="stat-label">Mitigation Latency</div>
+      </div>
+      
+      <div class="glass-panel stat-card" id="stat-keys-card">
+        <div class="stat-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m-3.436-3.436L4 16.586V20h3.414l9.286-9.286-3.414-3.414z" />
+          </svg>
+        </div>
+        <div class="stat-number" id="stat-keys">256-bit</div>
+        <div class="stat-label">Quantum Tunnel Keys</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Threat Command Console Section (Interactive Dashboard) -->
+  <section id="console" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">SEC-OPS DASHBOARD</span>
+        <h2 class="section-title">Vulnerability <span>Command Center</span></h2>
+        <p class="section-desc">Run simulated penetration queries and explore active firewall rules to test defensive protocols in real time.</p>
+      </div>
+      
+      <div class="console-wrapper">
+        <!-- Terminal Logs Panel -->
+        <div class="glass-panel console-interface">
+          <div class="terminal-header">
+            <span>console@aegis-defense:~/network-scanner</span>
+            <span>SECURE PROXY</span>
+          </div>
+          <div class="terminal-body" id="console-terminal-body" style="color: #39ff14;">
+            <div class="terminal-line"><span style="color: #475569">[06:12:05]</span> [SYS] Firewall logging established.</div>
+            <div class="terminal-line"><span style="color: #475569">[06:12:06]</span> [OK] Encryption parameters verified.</div>
+            <div class="terminal-line"><span style="color: #475569">[06:12:08]</span> [OK] Core threat sensor listening...</div>
+          </div>
+          <!-- Scanner Progress Bar -->
+          <div style="height: 4px; background: rgba(255,255,255,0.05); width: 100%;">
+            <div id="scan-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)); transition: width 0.3s ease;"></div>
+          </div>
+        </div>
+        
+        <!-- Controls Panel -->
+        <div class="glass-panel console-control-panel">
+          <div>
+            <div class="control-group">
+              <span class="control-label">Threat Severity Level</span>
+              <div class="dial-wrapper">
+                <div class="threat-dial" id="threat-dial">
+                  <div class="dial-inner">
+                    <span class="dial-value" id="dial-val">12%</span>
+                    <span class="dial-label">STATUS: SAFE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="control-group">
+              <span class="control-label">Select Simulation Vector</span>
+              <div class="btn-group">
+                <button class="btn-console" onclick="printConsoleLine('[SYS] Firewall Rule Altered: Drop packets from port 23 (Telnet)', 'purple')">Block Telnet</button>
+                <button class="btn-console" onclick="printConsoleLine('[WARN] Intrusion Simulation Loaded: Port Scan vector initialized', 'red')">Mock Port Scan</button>
+              </div>
+            </div>
+          </div>
+          
+          <button class="btn btn-primary" id="btn-start-scan" style="width: 100%; font-family: var(--font-mono); letter-spacing: 1px;">
+            START VULNERABILITY SCAN
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cryptographic Cipher Sandbox -->
+  <section id="cipher" class="section" style="background: rgba(2,4,8,0.3);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">CRYPTOGRAPHY LAB</span>
+        <h2 class="section-title">Cipher & <span>Payload Sandbox</span></h2>
+        <p class="section-desc">Test cryptographic payloads in our zero-footprint web sandbox. Translate data parameters dynamically to binary and hex codes.</p>
+      </div>
+      
+      <div class="cipher-grid">
+        <!-- Input Form Panel -->
+        <div class="glass-panel cipher-panel">
+          <div class="cipher-inputs">
+            <div class="input-container">
+              <label for="cipher-input">Input Plaintext Stream</label>
+              <textarea id="cipher-input" class="cyber-textarea" placeholder="Type secret message payload here to encrypt..."></textarea>
+            </div>
+            
+            <div class="input-container">
+              <label for="cipher-type">Encryption Algorithm</label>
+              <select id="cipher-type" class="cyber-select">
+                <option value="xor">XOR Cipher (Symmetric)</option>
+                <option value="base64">Base64 Encoder (Binary Transport)</option>
+                <option value="binary">Plain ASCII to Binary stream</option>
+              </select>
+            </div>
+            
+            <div class="input-container" id="key-container">
+              <label for="cipher-key">Cryptographic Secret Key</label>
+              <input type="text" id="cipher-key" class="cyber-input" value="AEGIS_XOR_KEY" />
+            </div>
+          </div>
+        </div>
+        
+        <!-- Output Display Panel -->
+        <div class="glass-panel cipher-panel" style="justify-content: flex-start;">
+          <div class="cipher-display">
+            <div class="cipher-output-box">
+              <span class="cipher-output-label">Encrypted HEX Stream</span>
+              <div class="cipher-output-value" id="cipher-text-val">Awaiting input text stream...</div>
+              
+              <div class="cipher-binary-value" id="cipher-binary-val">Binary representation output...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capability & Services Grid -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">SYSTEM CAPABILITIES</span>
+        <h2 class="section-title">Offensive & <span>Defensive Vectors</span></h2>
+        <p class="section-desc">Integrated cybersecurity modules built to protect endpoints, infrastructure pipelines, and user identity vectors.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="glass-panel service-card" id="service-pentest">
+          <div class="service-icon-wrapper">
+            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="service-title">Penetration Testing</h3>
+          <p class="service-desc">Advanced vulnerability assessment targeting application logic flaws, supply chain flaws, and privilege escalation vulnerabilities.</p>
+          <a href="#contact" class="service-link" id="link-pentest">
+            Request Audit 
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="glass-panel service-card" id="service-cloud">
+          <div class="service-icon-wrapper">
+            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Cloud Infrastructure Shield</h3>
+          <p class="service-desc">Deployment of automated Terraform/AWS secure zones. Infrastructure isolation using zero-trust subnet architectures.</p>
+          <a href="#contact" class="service-link" id="link-cloud">
+            Secure Infrastructure
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="glass-panel service-card" id="service-incident">
+          <div class="service-icon-wrapper">
+            <svg class="service-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Incident Response</h3>
+          <p class="service-desc">Round-the-clock emergency team to identify, isolate, and eradicate malware or hostile actors from compromised corporate grids.</p>
+          <a href="#contact" class="service-link" id="link-incident">
+            Call Response Team
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Threat Mapping (SVG Network Overlay) -->
+  <section id="map" class="section" style="background: rgba(2,4,8,0.3);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">SATELLITE INTELLIGENCE</span>
+        <h2 class="section-title">Live Global <span>Threat Activity</span></h2>
+        <p class="section-desc">Visualizing live system mitigations across our global edge endpoints. Pings represent active blocked vectors.</p>
+      </div>
+      
+      <div class="map-wrapper">
+        <!-- SVG Map Container -->
+        <div class="glass-panel cyber-map">
+          <div class="svg-map-container">
+            <svg id="cyber-world-map" viewBox="0 0 1000 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid background details inside SVG -->
+              <defs>
+                <pattern id="dot-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="#1e293b" />
+                </pattern>
+              </defs>
+              <rect width="1000" height="480" fill="url(#dot-grid)" />
+              
+              <!-- Stylized World Map Path -->
+              <path class="svg-world-map" d="M150,150 L180,130 L220,130 L260,110 L300,120 L350,110 L400,90 L450,100 L500,80 L550,90 L600,70 L650,80 L700,90 L750,75 L800,85 L850,70 L900,80 L880,120 L920,160 L850,220 L880,260 L850,300 L870,350 L840,400 L800,420 L820,380 L800,340 L820,300 L780,240 L720,260 L700,300 L650,340 L600,380 L550,420 L530,350 L480,310 L420,320 L380,340 L350,360 L380,410 L330,420 L300,360 L330,320 L270,300 L260,240 L220,200 L180,220 L130,220 L110,180 Z" />
+              <!-- Stylized Secondary Land Masses (Americas / East) -->
+              <path class="svg-world-map" d="M220,120 L270,140 L300,160 L320,180 L290,220 L240,240 L200,220 L180,180 Z" />
+              <path class="svg-world-map" d="M480,220 L520,230 L550,260 L540,300 L500,330 L450,280 L440,250 Z" />
+              <path class="svg-world-map" d="M680,150 L750,160 L780,200 L760,250 L700,240 L660,200 Z" />
+              <path class="svg-world-map" d="M780,320 L840,330 L870,360 L850,400 L800,420 L770,380 Z" />
+              
+              <!-- Core Data Centers / Node Links -->
+              <line x1="275" y1="165" x2="472" y2="125" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="4,4" />
+              <line x1="472" y1="125" x2="505" y2="138" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="4,4" />
+              <line x1="505" y1="138" x2="818" y2="175" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="4,4" />
+              <line x1="818" y1="175" x2="855" y2="380" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="4,4" />
+              
+              <!-- Node Indicator Rings -->
+              <circle cx="275" cy="165" r="5" fill="#00f0ff" />
+              <circle cx="472" cy="125" r="5" fill="#00f0ff" />
+              <circle cx="505" cy="138" r="5" fill="#00f0ff" />
+              <circle cx="818" cy="175" r="5" fill="#00f0ff" />
+              <circle cx="855" cy="380" r="5" fill="#00f0ff" />
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Map Console Logs -->
+        <div class="glass-panel map-log-card">
+          <div class="map-log-header">Mitigation Activity Log</div>
+          <div class="map-log-list" id="map-alert-logs">
+            <div class="map-log-item">
+              <span class="map-log-time">[21:44:02]</span>
+              <span class="map-log-event"><strong>London</strong>: SSH Brute Force Injection</span>
+              <span class="map-log-status resolved">BLOCKED</span>
+            </div>
+            <div class="map-log-item">
+              <span class="map-log-time">[21:43:21]</span>
+              <span class="map-log-event"><strong>Tokyo</strong>: Database Query Poisoning</span>
+              <span class="map-log-status resolved">MITIGATED</span>
+            </div>
+            <div class="map-log-item">
+              <span class="map-log-time">[21:42:55]</span>
+              <span class="map-log-event"><strong>New York</strong>: DDoS Ingress Wave</span>
+              <span class="map-log-status resolved">BLOCKED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">SECURE TRANSMISSION</span>
+        <h2 class="section-title">Initialize <span>Secure Connection</span></h2>
+        <p class="section-desc">Submit an encrypted signal request to our Security Operations Center. All transmissions are digitally verified and tunneled.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <!-- Contact Details -->
+        <div class="contact-info">
+          <div class="contact-item" id="info-address">
+            <div class="contact-icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h4>Operations Center</h4>
+              <p>Node 01 - Grid Zone 4A, Frankfurt, Germany</p>
+            </div>
+          </div>
+          
+          <div class="contact-item" id="info-email">
+            <div class="contact-icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h4>Encrypted Email</h4>
+              <p>ops@aegis-sec.io (PGP Key: 0x8F2C4A11)</p>
+            </div>
+          </div>
+          
+          <div class="contact-item" id="info-phone">
+            <div class="contact-icon-box">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h4>Signal Proxy Line</h4>
+              <p>+1 (555) 234-4770 (Priority Signal Channel)</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Form Panel -->
+        <div class="glass-panel contact-form-panel">
+          <form id="cyber-contact-form">
+            <div class="form-grid">
+              <div class="input-container">
+                <label for="form-name">Operator Name</label>
+                <input type="text" id="form-name" class="cyber-input" required placeholder="John Doe" />
+              </div>
+              <div class="input-container">
+                <label for="form-email">Signal Address (Email)</label>
+                <input type="email" id="form-email" class="cyber-input" required placeholder="operator@protonmail.com" />
+              </div>
+            </div>
+            
+            <div class="input-container form-span-2" style="margin-bottom: 24px;">
+              <label for="form-message">Transmission Payload</label>
+              <textarea id="form-message" class="cyber-textarea" required placeholder="Detail security incident, pen-testing request, or system inquiries..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; letter-spacing: 1px; font-family: var(--font-mono);">
+              TRANSMIT ENCRYPTED SIGNAL
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span class="logo-text">AEGIS<span>//CORE</span></span>
+        </a>
+        <p class="footer-desc">Next-generation defense solutions protecting global endpoints and cloud infrastructure via automated systems.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Command Indexes</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Operations Overview</a></li>
+          <li><a href="#console">Defense Console</a></li>
+          <li><a href="#cipher">Cipher Laboratories</a></li>
+          <li><a href="#services">Security Capabilities</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Access Nodes</h4>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact SOC</a></li>
+          <li><a href="#">Operator Dashboard</a></li>
+          <li><a href="#">PGP Public Directory</a></li>
+          <li><a href="#">Threat intelligence RSS</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div>&copy; 2026 AegisCore Operations. All rights reserved. Zero-Trust protocol enforced.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Protocol</a>
+        <a href="#">SOC 2 Compliance</a>
+        <a href="#">Keys Directory</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Controller Script -->
+  <script src="app.js"></script>
+</body>
+</html>
